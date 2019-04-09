@@ -2,9 +2,9 @@ from flask import Blueprint, jsonify, request
 from coordenador_api import *
 
 disciplina_app = Blueprint('disciplina_app', __name__, template_folder='templates')
-disciplina_db = []
+disciplinas_db = []
 
-@disciplina_app.route('/disciplina', methods=['GET'])
+@disciplina_app.route('/disciplinas', methods=['GET'])
 def listar():
     return jsonify(disciplina_db)
 
@@ -19,6 +19,14 @@ def localiza(id_disciplina):
 def novo():
     novo_disciplina = request.get_json()
     disciplinas_db.append(novo_disciplina)
+    status = request.get_json()
+    disciplinas_db.append(status)
+    plano_ensino = request.get_json()
+    disciplinas_db.append(plano_ensino)
+    carga_horaria = request.get_json()
+    disciplinas_db.append(carga_horaria)
+    coordenador = request.get_json()
+    disciplinas_db.append(coordenador)
     return jsonify(disciplinas_db)
 
 @disciplina_app.route('/disciplinas/<int:id_disciplina>', methods=['DELETE'])
