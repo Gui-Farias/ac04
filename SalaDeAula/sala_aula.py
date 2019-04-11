@@ -7,7 +7,7 @@ database = {
     "ALUNOS" : alunos_db,
     "PROFESSORES" : professores_db,
     "COORDENADOR" : coordenador_db,
-    "CURSO" : CURSO_db,
+    "CURSO" : curso_db,
     "DISCIPLINA" : disciplina_db,
     "DISCIPLINAOFERTADA" : disciplinaofertada_db,
     "SOLICITACAOMATRICULA" : solicitacaomatricula_db,
