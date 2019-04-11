@@ -6,7 +6,8 @@ from coordenador_api import coordenador_app, coordenador_db
 database = {
     "ALUNOS" : alunos_db,
     "PROFESSORES" : professores_db,
-    "COORDENADOR" : coordenador_db
+    "COORDENADOR" : coordenador_db,
+    "CURSO" : CURSO_db,
     "DISCIPLINA" : disciplina_db,
     "DISCIPLINAOFERTADA" : disciplinaofertada_db,
     "SOLICITACAOMATRICULA" : solicitacaomatricula_db,
@@ -16,6 +17,7 @@ app = Flask(__name__)
 app.register_blueprint(alunos_app)
 app.register_blueprint(professores_app)
 app.register_blueprint(coordenador_app)
+app.register_blueprint(curso_app)
 app.register_blueprint(disciplina_app)
 app.register_blueprint(disciplinaofertada_app)
 app.register_blueprint(solicitacaomatricula_app)
