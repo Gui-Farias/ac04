@@ -2,6 +2,10 @@ from flask import Flask, jsonify, request
 from alunos_api import alunos_app, alunos_db
 from professores_api import professores_app, professores_db
 from coordenador_api import coordenador_app, coordenador_db
+from curso_api import curso_app, curso_db
+from disciplina_api import disciplina_app, disciplina_db
+from disciplinaofertada_api import disciplinaofertada_app, disciplinaofertada_db
+from solicitacaomatricula_api import solicitacaomatricula_app, solicitacaomatricula_db
 
 database = {
     "ALUNOS" : alunos_db,
