@@ -1,54 +1,54 @@
 from flask import Blueprint, jsonify, request
 from coordenador_api import *
 
-disciplinaofertada_app = Blueprint('disciplinaofertada_app', __name__, template_folder='templates')
-disciplinaofertada_db = []
+solicitacaomatricula_app = Blueprint('solicitacaomatricula_app', __name__, template_folder='templates')
+solicitacaomatricula_db = []
 
-@disciplinaofertada_app.route('/disciplinaofertada', methods=['GET'])
+@solicitacaomatricula_app.route('/solicitacaomatricula', methods=['GET'])
 def listar():
-    return jsonify(disciplinaofertada_db)
+    return jsonify(solicitacaomatricula_db)
 
-@disciplinaofertada_app.route('/disciplinsofertada/<int:id_disciplinaofertada>', methods=['GET'])
-def localiza(id_disciplinaofertada):
-    for disciplinaofertada in disciplinaofertada_db:
-        if disciplinaofertada['id'] == id_disciplinaofertada:
-            return jsonify(disciplinaofertada)
+@solicitacaomatricula_app.route('/disciplinsofertada/<int:id_solicitacaomatricula>', methods=['GET'])
+def localiza(id_solicitacaomatricula):
+    for solicitacaomatricula in solicitacaomatricula_db:
+        if solicitacaomatricula['id'] == id_disciplinaofertada:
+            return jsonify(solicitacaomatricula)
     return '', 404
 
-@disciplinaofertada_app.route('/disciplinaofertada', methods=['POST'])
+@solicitacaomatricula_app.route('/solicitacaomatricula', methods=['POST'])
 def novo():
-    novo_disciplinaofertada = request.get_json()
-    disciplinaofertada_db.append(novo_disciplinaofertada)
-    disciplina = request.get_json()
-    disciplinaofertada_db.append(disciplina)
-    professor = request.get_json()
-    disciplinaofertada_db.append(professor)
-    turma = request.get_json()
-    disciplinaofertada_db.append(turma)
-    ano = request.get_json()
-    disciplinaofertada_db.append(ano)
-    semestre = request.get_json()
-    disciplinaofertada_db.append(semestre)
-    return jsonify(disciplinaofertada_db)
+    novo_solicitacaomatricula = request.get_json()
+    solicitacaomatricula_db.append(novo_solicitacaomatricula)
+    aluno = request.get_json()
+    solicitacaomatricula_db.append(aluno)
+    disciplinaofertada = request.get_json()
+    solicitacaomatricula_db.append(disciplinaofertada)
+    coordenador = request.get_json()
+    solicitacaomatricula_db.append(coordenador)
+    status = request.get_json()
+    solicitacaomatricula_db.append(status)
+    sdata = request.get_json()
+    solicitacaomatricula_db.append(sdata)
+    return jsonify(solicitacaomatricula_db)
 
-@disciplinaofertada_app.route('/disciplinaofertada/<int:id_disciplinaofertada>', methods=['DELETE'])
+@solicitacaomatricula_app.route('/solicitacaomatricula/<int:id_solicitacaomatricula>', methods=['DELETE'])
 def remover(id_disciplina):
     index = 0
-    for disciplinaofertada in disciplinaofertada_db:
-        if disciplinaofertada['id'] == id_disciplinaofertada:
-            del disciplinaofertada_db[index]
-            return jsonify(disciplinaofertada)
+    for solicitacaomatricula in solicitacaomatricula_db:
+        if solicitacaomatricula['id'] == id_solicitacaomatricula:
+            del solicitacaomatricula_db[index]
+            return jsonify(solicitacaomatricula)
         index = index + 1
     return '', 404
 
-@disciplinaofertada_app.route('/disciplinaofertada/<int:id_disciplinaofertada>', methods=['PUT'])
-def atualiza(id_disciplinaofertada):
-    novo_disciplinaofertada = request.get_json()
+@solicitacaomatricula_app.route('/solicitacaomatricula/<int:id_solicitacaomatricula>', methods=['PUT'])
+def atualiza(id_solicitacaomatricula):
+    novo_solicitacaomatricula = request.get_json()
     index = 0
-    for disciplinaofertada in disciplinaofertada_db:
-        if disciplinaofertada['id'] == id_disciplinaofertada:
-            del disciplinaofertada_db[index]
-            disciplinaofertada_db.append(novo_disciplinaofertada)
-            return jsonify(disciplinaofertada)
+    for solicitacaomatricula in solicitacaomatricula_db:
+        if solicitacaomatricula['id'] == id_solicitacaomatricula:
+            del solicitacaomatricula_db[index]
+            solicitacaomatricula_db.append(novo_solicitacaomatricula)
+            return jsonify(solicitacaomatricula)
         index = index + 1
     return '', 404
